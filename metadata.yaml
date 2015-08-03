@@ -14,8 +14,8 @@ creator:
     url: http://www.gutenberg.org/2009/agents/28
     wikipedia: http://en.wikipedia.org/wiki/Nathaniel_Hawthorne
 gutenberg_bookshelf:
-- Harvard Classics
 - Movie Books
+- Harvard Classics
 gutenberg_issued: '1992-06-01'
 gutenberg_type: Text
 identifiers:
@@ -25,17 +25,17 @@ publisher: Project Gutenberg
 rights: Public domain in the USA.
 rights_url: http://creativecommons.org/about/pdm
 subjects:
-- '!lcsh:Married women -- Fiction'
-- '!lcsh:Puritans -- Fiction'
-- '!lcsh:Women immigrants -- Fiction'
-- '!lcsh:Adultery -- Fiction'
-- '!lcsh:Psychological fiction'
-- '!lcsh:Revenge -- Fiction'
-- '!lcsh:Illegitimate children -- Fiction'
-- '!lcsh:Historical fiction'
-- '!lcc:PS'
-- '!lcsh:Clergy -- Fiction'
-- '!lcsh:Triangles (Interpersonal relations) -- Fiction'
-- '!lcsh:Boston (Mass.) -- History -- Colonial period, ca. 1600-1775 -- Fiction'
+- '!lcsh: Clergy -- Fiction'
+- '!lcsh: Women immigrants -- Fiction'
+- '!lcc: PS'
+- '!lcsh: Triangles (Interpersonal relations) -- Fiction'
+- '!lcsh: Adultery -- Fiction'
+- '!lcsh: Illegitimate children -- Fiction'
+- '!lcsh: Revenge -- Fiction'
+- '!lcsh: Psychological fiction'
+- '!lcsh: Puritans -- Fiction'
+- '!lcsh: Boston (Mass.) -- History -- Colonial period, ca. 1600-1775 -- Fiction'
+- '!lcsh: Historical fiction'
+- '!lcsh: Married women -- Fiction'
 title: The Scarlet Letter
 url: http://www.gutenberg.org/ebooks/33
