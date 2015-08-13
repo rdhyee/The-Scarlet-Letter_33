@@ -1,0 +1,32 @@
+language: ruby
+before_install:
+- gem install asciidoctor tilt
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+- asciidoctor -a toc,version=$VERSION -b xhtml5 -T ./asciidoctor-htmlbook/htmlbook-autogen/
+  -d book book.asciidoc -o book.html
+- git clone https://github.com/gitenberg-dev/HTMLBook
+- xsltproc -stringparam external.assets.list " " ./HTMLBook/htmlbook-xsl/epub.xsl book.html
+- cp ./HTMLBook/stylesheets/epub/epub.css OEBPS
+- cp cover.jpg OEBPS/cover.jpg
+- if test -d "./images"; then mv ./images ./OEBPS/ ;fi
+- zip -rX book.epub mimetype
+- zip -rX book.epub OEBPS/ META-INF/
+- if test -d "OEBPS/images/"; then zip -rX book.epub OEBPS/images/ ;fi 
+- mv book.epub The-Scarlet-Letter.epub
+branches:
+  only:
+  - master
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: fTVI2/SEuczGy0TaSt4TcvVNNya6g505RN4LzOqN0u4mXuXEae3Vq0daOYjXSdn1tIZ9M+2SzLGX4PkC8Cl7951UzkJ6E7bJsJgVZ4izV2DYFQxJiUnRavdw7wkd0Aph7Zgmu6cEXCS9MhSmj17zZ1+L5Tm66TgRwz2tqVrL0v3K+pygZQgfwtCwPLtG2e7UB1Vn0oMueQPiNb2ICWxDSfPckPCguGwzHYLnOC8yNLhqJeb2N3YVIJPUOOPae73iddVJYvPbKOVJdt1L8v2YQUvT4Fxssr4fF3apDdxelcKgM9pOlszkWqNZbjsISbWOPfyMPXaDWzRaMW2LFlREg7fJ2MsvvIB2+Y6LoawMX3QCe1umxpLDQQosAx623HMqEEhBy8X8ErFCrKLFyH1LbOU38le/Vn1Gd9lQv218Dl/JdmX81ARWii7NcadHgz7h19kkDd7yqj4evuGeh2pMass1P8lQGhNUgG0o30EozIH1B5bMygtNxysfT2nxZBt6JuwBX4q5/O1wLTkOEc4S4MgIZMt8WNofr0md+TQiuMOuTNioI0bbrvMRP3ZCCtSTvLTTE43+PCJjxSA5Qj6qIqM3dTLXFXCWE1TJ+N7aFiHOFwMyU0gn7zBtf5QI1UFbp+8yN9hgp5RMikENfyJcrwK67Uaf3elqxmu6CkFiHMc=
+  file: The-Scarlet-Letter.epub
+  "on":
+    repo: GITenberg/The-Scarlet-Letter_33
+addons:
+  apt:
+    packages:
+    - xsltproc
