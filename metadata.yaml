@@ -1,5 +1,5 @@
 _repo: The-Scarlet-Letter_33
-_version: 0.0.2
+_version: 0.1.0
 covers:
 - attribution: MrFurious, 2015
   cover_type: original
@@ -39,5 +39,6 @@ subjects:
 - '!lcsh: Boston (Mass.) -- History -- Colonial period, ca. 1600-1775 -- Fiction'
 - '!lcsh: Historical fiction'
 - '!lcsh: Married women -- Fiction'
+- GITenberg
 title: The Scarlet Letter
 url: http://www.gutenberg.org/ebooks/33
